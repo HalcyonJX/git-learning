@@ -2,26 +2,16 @@ package main
 
 import (
 	"fmt"
-	"math/rand"
-	"time"
 )
 
 func main() {
-	rand.Seed(time.Now().Unix())
-	slice := make([]int64, 0)
-	for i := 0; i < 100; i++ {
-		slice = append(slice, rand.Int63n(100))
-	}
-	fmt.Println("初始顺序：", slice)
+	slice := []int64{213, 32, 423, 5, 342, 42455, 678, 442, 523, 556, 42341, 423098, 89677}
 	fmt.Println("冒泡排序：")
 	BubblingSort(slice)
-	fmt.Println("长度为：", len(slice))
 	fmt.Println("选择排序：")
 	SelectSort(slice)
-	fmt.Println("长度为：", len(slice))
 	fmt.Println("插入排序：")
 	InsertSort(slice)
-	fmt.Println("长度为：", len(slice))
 
 }
 
@@ -63,11 +53,12 @@ func InsertSort(slice []int64) []int64 {
 	for i := 1; i < len(slice3); i++ {
 		for j := i; j > 0; j-- {
 			if slice3[j] < slice3[j-1] {
-				slice3[j-1], slice3[j] = slice3[j], slice3[j-1]
-			} else if slice3[i] >= slice3[j-1] {
+				slice3[j], slice3[j-1] = slice3[j-1], slice3[j]
+			} else if slice3[j] > slice3[j-1] {
 				break
 			}
 		}
+
 	}
 	fmt.Println(slice3)
 	return slice3

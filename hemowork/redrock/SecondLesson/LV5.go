@@ -45,7 +45,7 @@ func main() {
 	fmt.Scan(&operate)
 	switch operate {
 	case "排序":
-		sort(c)
+		sort1(c)
 	case "查找":
 		search(c)
 	case "修改数据":
@@ -106,7 +106,7 @@ func remake(c *[100]coder) {
 }
 
 // 代码行大于150的同学输出完整信息 并进行排序
-func sort(c *[100]coder) {
+func sort1(c *[100]coder) {
 	fmt.Println("代码行超过150的同学(已排序)")
 	//fmt.Println(c)
 	for i = 0; i < 100; i++ {
